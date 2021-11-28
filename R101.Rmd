@@ -1,0 +1,73 @@
+---
+title: "R101"
+author: "Iftakharul Alam"
+date: '2021/11/27 (updated: `r Sys.Date()`)'
+output:
+  slidy_presentation: default
+subtitle: R-Ladies Abuja + Abuja R Users
+---
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+knitr::opts_chunk$set(warning = FALSE, 
+                      message = FALSE, 
+                      fig.align = "center", 
+                      dpi = 100,
+                      fig.height = 4.5)
+```
+
+## R Markdown
+
+This is an R Markdown presentation. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document.
+
+---
+
+## Slide with Bullets
+
+- Bullet 1
+- Bullet 2
+- Bullet 3
+
+---
+
+## Slide with R Output
+
+```{r cars, echo = TRUE}
+summary(cars)
+```
+
+---
+
+## Slide with Plot
+
+```{r pressure}
+plot(pressure)
+```
+
+---
+
+## Polygon
+
+```{r}
+plot(x = c(1, 2, 4, 3, 1), y = c(2, 4, 3, 1, 2),
+     ylab = "", xlab = "",
+     main = "Polygon", type = "l")
+```
+
+---
+
+## Polygon
+
+```{r}
+library(rnaturalearth)
+library(sf)
+library(dplyr)
+poland_df <- ne_countries(type = 'countries', scale = 'small', returnclass = "sf") %>%
+  filter(name == "Poland")
+plot(poland_df$geometry, col = rgb(59, 132,86, maxColorValue = 255), border = 'grey', 
+     axes = TRUE, main = "Poland")
+```
+
+---
